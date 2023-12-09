@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+body {
+    font-family: poppins;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
+
+.perfil-titulo {
+    color: rgb(11, 11, 11);
+    font-size: 24px;
+}
+
+.perfil {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   
+ 
+    width: 80%; /* Ajuste a largura conforme necessário */
+}
+
+.info-lado {
+    flex: 1;
+}
+
+.titulo-aqua {
+    color: rgb(0, 0, 0);
+    margin-bottom: 15px;
+}
+
+.info-titulo {
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    margin-top: 10px;   
+}
+
+.perfil p {
+    margin: 8px 0;
+}
+
+
+.alterar-tela {
+    display: none;
+    flex-direction: column;
+    align-items: center; /* Centraliza na horizontal */
+    margin-top: 20px;
+}
+
+.alterar-tela {
+    display: none;
+    flex-direction: column;
+    align-items: center; /* Centraliza na horizontal */
+    margin-top: 20px;
+}
+
+.alterar-tela .perfil {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid aqua;
+    width: 60%; /* Ajuste a largura conforme necessário */
+}
+
+.alterar-tela .info-lado {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.alterar-tela .info-item {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+
+.alterar-tela .info-item label {
+    margin-bottom: 5px; 
+}
+
+
+.alterar-tela .perfil-titulo {
+    color: aqua;
+    font-size: 24px;
+    margin-bottom: 15px; /* Ajuste conforme necessário */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.botao-alterar {
+    margin-top: 10px;
+    background-color: rgb(0, 0, 0);
+    color: aqua;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-alterar:hover {
+    background-color: #00cccc;
+}
+
+.space{
+    height: 110px;
+    width: 100%;
+    background: rgb(255, 255, 255);
+}
+
+
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .perfil {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .info-lado {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .info-item {
+        margin-right: 0;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .perfil-titulo {
+        margin-bottom: 10px;
+    }
+}
+
+/* Estilos para telas menores que 400px */
+@media only screen and (max-width: 400px) {
+    .alterar-tela .perfil {
+        width: 100%;
+    }
+}

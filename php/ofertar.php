@@ -1,6 +1,9 @@
 <?php 
  include_once 'conexao.php';
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +26,8 @@
   if(!empty($dados["addBancoCarona"])) { 
     
 
-    $queryUsu= "INSERT INTO carona (id_usuario, destino, rua, bairro, lugares, data_carona, hora_carona) 
-    VALUES(:id_usuario, :destino, :rua, :bairro, :lugares, :data_carona, :hora_carona)"; //query que vai inserir no bando de dados os dados 
+    $queryUsu= "INSERT INTO carona (id_usuario, destino, rua, bairro, lugares, data_carona, hora_carona, carro) 
+    VALUES(:id_usuario, :destino, :rua, :bairro, :lugares, :data_carona, :hora_carona, :carro)"; //query que vai inserir no bando de dados os dados 
     $add_carona = $pdo->prepare($queryUsu); //a variavel pdo esta no conexao
     //atribuir os valores aos links que foram criados no na query
     $add_carona->bindParam(':id_usuario', $_SESSION['idUser'], PDO::PARAM_STR);
@@ -34,6 +37,7 @@
     $add_carona->bindParam(':lugares', $dados['lugares'], PDO::PARAM_INT);
     $add_carona->bindParam(':data_carona', $dados['data_carona'], PDO::PARAM_STR);
     $add_carona->bindParam(':hora_carona', $dados['hora_carona'], PDO::PARAM_STR);
+    $add_carona->bindParam(':carro', $dados['carro'], PDO::PARAM_STR);
 
 
     $add_carona->execute();
@@ -49,7 +53,7 @@
 ?>
 
   <div class="container">
-    <h1>Ofertar Carona</h1>
+    <div class="titulo">Ofertar Carona</div>
     <form id="carpoolForm" action="" method="POST">
         <!-- Coluna 1 -->
         <div class="column">
@@ -59,8 +63,8 @@
           </div>
 
           <div class="label-input-group">
-            <label for="neighborhood">Bairro:</label>
-            <input type="text" id="bairro" name="bairro" required>
+            <label for="neighborhood">Saida:</label>
+            <input type="text" id="bairro" name="bairro" required placeholder="BAIRRO OU FACULDADE">
           </div>
 
           <div class="label-input-group">
@@ -88,7 +92,7 @@
 
           <div class="label-input-group">
             <label for="car">carro:</label>
-            <input type="text" id="car" name="car" required placeholder="MODELO">
+            <input type="text" id="carro" name="carro" required placeholder="MODELO">
           </div>
           <button type="submit" value=" " name="addBancoCarona">Ofertar Carona</button>
         </div>

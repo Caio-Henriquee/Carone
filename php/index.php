@@ -74,6 +74,8 @@ if (isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])): //verificar se a
                 break;
                 case 'ofertar': require 'ofertar.php';
                 break;
+                case 'buscar': require 'buscar.php';
+                break;
                 default: require 'telaInicial.php';
             }
         ?>

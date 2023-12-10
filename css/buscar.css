@@ -1,0 +1,146 @@
+/* Estilos gerais para o corpo da página */
+.body_buscar {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #f0f0f0;
+  font-size: 16px;
+}
+
+/* Contêiner para o conteúdo principal */
+.content {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Estilos para títulos h1 */
+h1 {
+  text-align: center;
+  font-weight: 500;
+  color: #22AAA1;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+/* Estilos para cartões */
+.card {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  font-size: 1.1em;
+}
+
+/* Estilos para linhas flexíveis */
+.row {
+  display: flex;
+  flex-direction: column; /* Modificado para a direção da coluna */
+  margin-bottom: 15px;
+}
+
+/* Estilos para colunas flexíveis */
+.col,
+.col-left,
+.col-right,
+.col-vertical {
+  flex: 1;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.col:last-child {
+  margin-bottom: 0;
+}
+
+/* Estilos responsivos para telas menores */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .card {
+    font-size: 1em;
+    flex-direction: column; /* Adicionando esta linha para alterar a direção para coluna */
+  }
+
+  .col,
+  .col-left,
+  .col-right,
+  .col-vertical {
+    flex: 1;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* Estilos específicos para colunas esquerda e direita */
+.col-left,
+.col-right {
+  flex: 0 1 calc(50% - 10px);
+  padding: 10px;
+  margin-right: 10px;
+}
+
+/* Estilos para colunas verticais com borda */
+/* Estilos para colunas verticais com borda */
+.col-vertical {
+  flex: 0 1 48%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px; /* Adicionei a margem inferior de volta */
+}
+
+/* Estilos para linhas com parágrafos */
+.row p {
+  margin: 5px 0;
+}
+
+/* Estilos para linha horizontal de separação */
+hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+/* Estilos para seção com cabeçalho */
+.section-heading {
+  text-align: center;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos para o mapa */
+.map-container {
+  width: 100%;
+  height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+
+.section-heading h2 {
+  font-size: 1.2em;
+  color: aqua;
+  margin: 0;
+} 
+
+
+
+/* Efeitos de transformação ao passar o mouse nas colunas verticais */
+.col-vertical:hover {
+  transform: scale(1.05);
+}
+
+.espacamento {
+  width: 100%;
+  height: 30px;
+}

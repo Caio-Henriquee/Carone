@@ -28,7 +28,7 @@
             <div class="column is-1 is-offset-4 is-link">
                 <div class="buttons">
                     <button class="  butao_color border_radius_buttons button is-primary is-large " >
-                        <a href="index.php?pg=ofertar">BUSCAR</a>
+                        <a href="index.php?pg=buscar">BUSCAR</a>
                     </button>
 
                 </div>
@@ -36,7 +36,9 @@
             </div>
             <div class="column is-1 is-offset-2 is-link">
                 <div class="buttons">
-                    <button class=" border_radius_buttons button is-primary is-large">OFERTAR </button>
+                <button class="  butao_color border_radius_buttons button is-primary is-large " >
+                <a href="index.php?pg=ofertar">OFERTAR</a>                  
+              </button>     
                 </div>
             </div>
         </div>
@@ -123,7 +125,7 @@
 </body>
 
 
-<script src="../js/IndexScript.js   "></script>
+
 
 </html>
 

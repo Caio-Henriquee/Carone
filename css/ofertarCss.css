@@ -21,9 +21,10 @@ body {
   box-sizing: border-box; /* Considerar o padding na largura total */
 }
 
-h1 {
+.titulo {
   text-align: center;
   color: aqua;
+  font-size: 24px;
 }
 
 form {

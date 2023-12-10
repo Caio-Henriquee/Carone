@@ -21,9 +21,12 @@ if(isset($_SESSION['idUser']) && !empty($_SESSION['idUser'])){
 
 
 function converterData($dataSql) {
-    // Converte a data do formato SQL para o formato brasileiro
-    $dataBrasileira = date('d-m-Y', strtotime($dataSql));
+    // Convertendo a string para objeto DateTime
+  $dateTime = new DateTime($dataSql);
 
-    return $dataBrasileira;
+  // Obtendo a parte da data no formato brasileiro
+  $dataFormatada = $dateTime->format('d/m/Y');
+
+  return $dataFormatada;
 }
 ?>

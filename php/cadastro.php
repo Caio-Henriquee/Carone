@@ -53,7 +53,7 @@
         <form action="" method="POST">
           <label class="label">Nome</label>
           <div class="control">
-            <input class="input" type="text" placeholder="Nome" required name="nome">
+            <input class="input" type="text" placeholder="Nome e Sobrenome" required name="nome">
           </div>
       </div>
     </div> 
@@ -86,7 +86,7 @@
       <div class="field">
         <label class="label">Telefone</label>
         <div class="control">
-          <input class="input" type="text" placeholder=" Telefone" id="telefone" required name="telefone">
+          <input class="input" type="text" placeholder=" Telefone" id="telefone" required name="telefone" maxlength="14">
         </div>
       </div>
     </div> 

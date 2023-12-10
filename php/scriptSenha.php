@@ -1,31 +1,25 @@
-
 <?php
 
-global $msg ;
+global $msg;
 global $cpf;
 global $email;
 
-if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['cpf']) && !empty($_POST['cpf'])) { //metodo isset verificar se o email existe/ metodo empty verificar se tem nao tem valor 
-
-    //requirindo os arquivos
-
+if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['cpf']) && !empty($_POST['cpf'])) {
     require 'conexao.php';
     require 'UsuarioClass.php';
 
-    //estanciando objeto do tipo usuario
     $u = new Usuario();
 
-    $email = addslashes($_POST['email']); //o comando addslaashes nao deixa qualqeur pessoa manipular o banco atraves dos insputs
+    $email = addslashes($_POST['email']);
     $cpf = addslashes($_POST['cpf']);
-    
+
     if ($u->senha($email, $cpf) == true) {
-        header("Location: trocarSenha.php");
+        // Adiciona os parâmetros à URL antes de redirecionar
+        header("Location: trocarSenha.php?cpf=" . urlencode($cpf) . "&email=" . urlencode($email));
     } else {
         $msg = "Dados errados";
         header("Location: telaSenha.php?msg=" . urlencode($msg) . "&cpf=" . urlencode($cpf) . "&email=" . urlencode($email));
         exit();
     }
-}   
-
-
+}
 ?>

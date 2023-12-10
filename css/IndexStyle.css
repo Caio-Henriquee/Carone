@@ -3,6 +3,7 @@
    font-family: poppins;
 }
 
+
 .column{
     display: flex;
     flex-direction: column;
@@ -38,7 +39,7 @@
 }
 
 .card_converter{
-    box-shadow: 0px 0px 0px 2px rgba(255,255,255,0);
--webkit-box-shadow: 0px 0px 0px 2px rgba(255,255,255,0);
--moz-box-shadow: 0px 0px 0px 2px rgba(255,255,255,0);
+    -webkit-box-shadow: 4px 6px 8px 4px rgba(247,247,247,0.8);
+    -moz-box-shadow: 4px 6px 8px 4px rgba(247,247,247,0.8);
+    box-shadow: 4px 6px 8px 4px rgba(247,247,247,0.8);
 }

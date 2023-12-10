@@ -2,11 +2,15 @@
     
 require_once 'conexao.php';
 
-function converteData($dataSql) {
-  // Converte a data do formato SQL para o formato brasileiro
-  $dataBrasileira = date('d-m-Y', strtotime($dataSql));
 
-  return $dataBrasileira;
+function formatarData($data) {
+  // Convertendo a string para objeto DateTime
+  $dateTime = new DateTime($data);
+
+  // Obtendo a parte da data no formato brasileiro
+  $dataFormatada = $dateTime->format('d/m/Y');
+
+  return $dataFormatada;
 }
     ?>
 
@@ -36,7 +40,8 @@ function converteData($dataSql) {
             FROM carona
             GROUP BY id_usuario
         ) t ON c.id_usuario = t.id_usuario AND c.data_postagem = t.max_data_postagem
-        JOIN usuario u ON c.id_usuario = u.id;";
+        JOIN usuario u ON c.id_usuario = u.id
+        ORDER BY c.data_postagem DESC;";
 
       if ($result = $pdo->query($sql)) {
         $destino = array();
@@ -64,6 +69,7 @@ function converteData($dataSql) {
         $carro[$i] = $row['carro'];
         $destino[$i] = $row['destino'];
       ?>
+      <?php echo $nome[$i] ?> - Publicação <?php echo formatarData($data_postagem[$i]) ?>
     <div class="card">
       <div class="col-vertical" id="saida">
         <div class="section-heading">
@@ -71,7 +77,7 @@ function converteData($dataSql) {
           <div class="row">
             <p><strong>Rua:</strong> <?php echo $rua[$i] ?> <br> </p>
             <p><strong>Bairro:</strong> <?php echo $bairro[$i] ?></p>
-            <p><strong>Data de Saída:</strong><?php echo  converteData($data_carona[$i]) ?></p>
+            <p><strong>Data de Saída:</strong><?php echo  formatarData($data_carona[$i]) ?></p>
             <p><strong>Horário de Saída:</strong> <?php echo  $hora_carona[$i] ?></p>
           </div>
         </div>

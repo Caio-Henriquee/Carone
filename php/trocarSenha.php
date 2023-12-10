@@ -1,7 +1,31 @@
 <?php 
-  
- include_once 'conexao.php';
- include_once 'scriptSenha.php';
+
+
+include_once 'conexao.php';
+include_once 'scriptSenha.php';
+
+$cpf = isset($_GET['cpf']) ? $_GET['cpf'] : '';
+$email = isset($_GET['email']) ? $_GET['email'] : '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['updateBanco'])) {
+    $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+    $queryUpdate = "UPDATE usuario SET senha = MD5(:senha) WHERE cpf = :cpf AND email = :email";
+    $updateSenha = $pdo->prepare($queryUpdate);
+
+    $updateSenha->bindParam(':cpf', $cpf, PDO::PARAM_STR);
+    $updateSenha->bindParam(':email', $email, PDO::PARAM_STR);
+    $updateSenha->bindParam(':senha', $dados['senha1'], PDO::PARAM_STR);
+
+    $updateSenha->execute();
+
+    if ($updateSenha->rowCount()) {
+        echo '<h1>Senha atualizada com sucesso</h1>';
+        header('Location: ../login.php');
+    } else {
+        echo 'Erro ao atualizar a senha';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,35 +44,6 @@
 
 <body>
 
-<?php 
-  
-  $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-
-  $cpf = isset($_GET['cpf']) ? $_GET['cpf'] : '';
-  $email = isset($_GET['email']) ? $_GET['email'] : '';
-
-  
-  if (!empty($dados["updateBanco"])) {
-  
-      // Aqui está o código para atualizar a senha com base no CPF e e-mail
-      $queryUpdate = "UPDATE usuario SET senha = MD5(:senha) WHERE cpf = :cpf AND email = :email";
-      $updateSenha = $pdo->prepare($queryUpdate);
-  
-      $updateSenha->bindParam(':cpf', $dados['cpf'], PDO::PARAM_STR);
-      $updateSenha->bindParam(':email', $dados['email'], PDO::PARAM_STR);
-      $updateSenha->bindParam(':senha', $dados['senha'], PDO::PARAM_STR);
-  
-      $updateSenha->execute();
-  
-      if ($updateSenha->rowCount()) {
-          echo '<h1>Senha atualizada com sucesso</h1>';
-          header('Location: ../login.php');
-      } else {
-          echo '<h1>Erro ao atualizar a senha</h1>';
-      }
-  }
-?>
-
   <div class="page"> 
     <div class="container">
       <div class="formulario">
@@ -64,10 +59,10 @@
           </div>
           <div class="input">
             <i class="fa fa-lock icone"></i>
-            <input class="input" name="senha2" type="password" id="senha2" placeholder="Confirma Senha" required maxlength="14">
+            <input class="input" name="senha2" type="password" id="senha2" placeholder="Confirma Senha">
           </div>
           <div class="error-message" id="passwordMismatch"></div>
-          <input type="submit" name="login" value="Confirmar senha" class="btn btn-login">
+          <input type="submit" name="updateBanco" value="Confirmar senha" class="btn btn-login">
         </form>
       </div>
     </div>

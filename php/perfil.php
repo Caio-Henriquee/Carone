@@ -39,7 +39,7 @@
                     <p class="info-titulo">Senha:</p>
                     <p>********</p>
                 </div>
-                <button class="botao-alterar" id="btnAlterar">Alterar Dados</button>
+                <div class="link_senha"><a href="./telaSenha.php">TROCAR SENHA</a></div>
             </div>
         </div>
     </div>
